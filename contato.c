@@ -36,7 +36,7 @@ void listar(Contato *lista, int total) {
         return;
     }
 
-    int = i;
+    int i;
     for (i = 0; i < total; i++) {
         printf("--------------------------------\n");
         printf("ID:       %d\n", (lista + i)->id);
@@ -61,7 +61,7 @@ void buscar(Contato *lista, int total) {
     scanf(" %[^\n]", nomeBusca);
 
     int encontrados = 0;
-    int i 
+    int i;
     for (i = 0; i < total; i++) {
         if (strcmp((lista + i)->nome, nomeBusca) == 0) {
             printf("\n>> Contato Encontrado! <<\n");
@@ -90,8 +90,8 @@ void editar(Contato *lista, int total) {
     scanf("%d", &idBusca);
 
     int indiceEncontrado = -1;
-    int i 
-    for ( i = 0; i < total; i++) {
+    int i;
+    for (i = 0; i < total; i++) {
         if ((lista + i)->id == idBusca) {
             indiceEncontrado = i;
             break;
@@ -139,7 +139,6 @@ void remover(Contato *lista, int *total) {
     if (indiceParaRemover != -1) {
         printf("Excluindo contato: %s\n", (lista + indiceParaRemover)->nome);
 
-        int i 
         for (i = indiceParaRemover; i < *total - 1; i++) {
             lista[i] = lista[i + 1];
         }
@@ -152,23 +151,16 @@ void remover(Contato *lista, int *total) {
     }
 }
 
-// Ela recebe um ponteiro para um contato, o total de contatos que FALTAM analisar e o número N.
 int contarNomesMaioresQue_recursivo(Contato *pContato, int restantes, int N) {
-    // CASO BASE: A condição de parada. Se não tem mais contatos para ver, retorna 0.
     if (restantes == 0) {
         return 0;
     }
 
     int contadorAtual = (strlen(pContato->nome) > N) ? 1 : 0;
 
-    // A função se chama de novo, só que agr,
-    // 1. Passa o ponteiro para o PRÓXIMO contato (`pContato + 1`).
-    // 2. Diminui a contagem de contatos restantes (`restantes - 1`).
-    // O resultado é o já contado (0 ou 1) somado com o que a próxima chamada encontrar.
     return contadorAtual + contarNomesMaioresQue_recursivo(pContato + 1, restantes - 1, N);
 }
 
-// Essa é a função que a main chama. 
 void estatisticas(Contato *lista, int total) {
     printf("\n--- 6. Estatisticas (Funcao Recursiva) ---\n");
 

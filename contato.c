@@ -1,4 +1,4 @@
-#include "contato.h" 
+#include "contato.h"
 #include <stdio.h>
 #include <string.h>
 

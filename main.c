@@ -13,11 +13,10 @@ int main() {
         printf("3. Buscar por nome\n");
         printf("4. Editar\n");
         printf("5. Excluir\n");
-        printf("6. Estatisticas (recursivo)\n"); // 
-        printf("7. Sair\n");                     
+        printf("6. Estatisticas (recursivo)\n");
+        printf("7. Sair\n");
         printf("Escolha uma opcao: ");
 
-        
         scanf("%d", &opcao);
 
         switch(opcao) {
@@ -26,8 +25,9 @@ int main() {
             case 3: buscar(agenda, totalContatos); break;
             case 4: editar(agenda, totalContatos); break;
             case 5: remover(agenda, &totalContatos); break;
-            case 6: estatisticas(agenda, totalContatos); break; // 
-            case 7: printf("Encerrando...\n"); break;           
+            case 6: estatisticas(agenda, totalContatos); break;
+            case 7: printf("Encerrando...\n"); break;
+            default: printf("Opcao invalida.\n");
         }
     } while(opcao != 7);
 

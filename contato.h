@@ -3,7 +3,6 @@
 
 #define MAX_CONTATOS 100
 
-// Adicionei o e-mail ao cadastro.
 typedef struct {
     int id;
     char nome[50];
@@ -11,12 +10,11 @@ typedef struct {
     char email[50];
 } Contato;
 
-// A busca ocorre pelo nome.
 void cadastrar(Contato lista[], int *total);
 void listar(Contato lista[], int total);
 void buscar(Contato lista[], int total);
 void editar(Contato lista[], int total);
 void remover(Contato lista[], int *total);
-void estatisticas( Contato lista[], int total); // Função recursiva.
+void estatisticas(Contato lista[], int total);
 
 #endif

@@ -80,3 +80,86 @@ Este projeto foi desenvolvido por:
 *   **Joao Duarte Borges Neto** - `BGZ-dev`
 *   **Eduardo Rodrigues dos Santos** - `Estque`
 *   **luan de Avila Nunes** - `lAviila`
+
+## ⚠️ Avisos (caso não compile/execute)
+
+Se o projeto não rodar, os problemas abaixo geralmente estão relacionados ao **ambiente de desenvolvimento** e não à lógica do código.
+
+### 1) Compilador/IDE com problema interno
+**Sintoma comum:**
+- `gcc.exe: internal error: Aborted (program collect2)`
+
+**Como resolver/testar:**
+- Feche e reabra a IDE.
+- Faça **Clean** e depois **Rebuild All**.
+- Reinstale/atualize o compilador (GCC/MinGW).
+- Teste compilar fora da IDE (terminal):
+  ```bash
+  gcc -Wall -Wextra -std=c11 main.c contato.c -o programa
+  ```
+
+---
+
+### 2) Projeto configurado com caminhos/bibliotecas errados
+**Sintoma comum:**
+- Build falha mesmo com arquivos corretos.
+- Mensagens envolvendo `Makefile.win`, `collect2` ou caminho de `lib` inválido.
+
+**Como resolver/testar:**
+- Verifique nas configurações da IDE os diretórios de **Compiler**, **Libraries** e **Includes**.
+- Confirme se as pastas do MinGW/GCC realmente existem no disco.
+- Reconfigure o compilador padrão da IDE para uma instalação válida do GCC.
+
+---
+
+### 3) Arquivos salvos com extensão incorreta (problema de configuração/uso da IDE)
+**Sintoma comum:**
+- `fatal error: contato.h: No such file or directory`
+- Build não encontra arquivos que “aparentemente existem”.
+
+**Como resolver/testar:**
+- Confirme os nomes e extensões:
+  - `main.c`
+  - `contato.c`
+  - `contato.h`
+- Ao salvar no Windows/Dev-C++, use “**All files (*.*)**” para garantir `.h` no header.
+- Deixe os três arquivos na mesma pasta do projeto.
+
+---
+
+### 4) Execução em pasta/projeto diferente da pasta dos arquivos
+**Sintoma comum:**
+- Comando de compilação roda, mas não acha arquivos corretos.
+- Executável não aparece onde esperado.
+
+**Como resolver/testar:**
+- No terminal, entre na pasta correta antes de compilar:
+  ```bash
+  cd caminho/da/pasta/do/projeto
+  gcc main.c contato.c -o programa
+  ```
+- Na IDE, confirme se o projeto está apontando para os arquivos da pasta certa.
+
+---
+
+### 5) Falta do GCC no sistema (PATH)
+**Sintoma comum:**
+- `gcc: command not found` (Linux/macOS)
+- `'gcc' is not recognized...` (Windows)
+
+**Como resolver/testar:**
+- Instale GCC/MinGW.
+- Adicione o compilador ao `PATH`.
+- Teste:
+  ```bash
+  gcc --version
+  ```
+
+---
+
+### Comando recomendado para validação rápida
+Use este comando para testar compilação com avisos úteis:
+
+```bash
+gcc -Wall -Wextra -std=c11 main.c contato.c -o programa
+```

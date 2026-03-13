@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include "contatos.h"
+#include "contato.h"
 
 void cadastrarContato(Contato contatos[], int *total)
 {
@@ -64,7 +64,7 @@ void editarContato(Contato contatos[], int total)
     indice = buscarContato(contatos, total, nome);
 
     if (indice == -1) {
-        printf("Contato não encontrado.\n");
+        printf("Contato nÃ£o encontrado.\n");
         return;
     }
 
@@ -91,7 +91,7 @@ void removerContato(Contato contatos[], int *total)
     indice = buscarContato(contatos, *total, nome);
 
     if (indice == -1) {
-        printf("Contato não encontrado.\n");
+        printf("Contato nÃ£o encontrado.\n");
         return;
     }
 
@@ -104,7 +104,7 @@ void removerContato(Contato contatos[], int *total)
     printf("Contato removido com sucesso!\n");
 }
 
-/* FUNÇÃO RECURSIVA */
+
 int contarNomesMaioresQue(Contato contatos[], int total, int indice, int tamanho)
 {
     if (indice >= total)

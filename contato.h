@@ -1,20 +1,23 @@
-#ifndef CONTATO_H
-#define CONTATO_H
+#ifndef CONTATOS_H
+#define CONTATOS_H
 
 #define MAX_CONTATOS 100
+#define TAM_NOME 100
+#define TAM_TEL 20
+#define TAM_EMAIL 100
 
 typedef struct {
-    int id;
-    char nome[50];
-    char telefone[20];
-    char email[50];
+    char nome[TAM_NOME];
+    char telefone[TAM_TEL];
+    char email[TAM_EMAIL];
 } Contato;
 
-void cadastrar(Contato lista[], int *total);
-void listar(Contato lista[], int total);
-void buscar(Contato lista[], int total);
-void editar(Contato lista[], int total);
-void remover(Contato lista[], int *total);
-void estatisticas(Contato lista[], int total);
+void cadastrarContato(Contato contatos[], int *total);
+void listarContatos(Contato contatos[], int total);
+int buscarContato(Contato contatos[], int total, char nome[]);
+void editarContato(Contato contatos[], int total);
+void removerContato(Contato contatos[], int *total);
+
+int contarNomesMaioresQue(Contato contatos[], int total, int indice, int tamanho);
 
 #endif

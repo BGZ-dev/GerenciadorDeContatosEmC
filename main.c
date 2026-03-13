@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "contatos.h"
+#include "contato.h"
 
 int main()
 {
